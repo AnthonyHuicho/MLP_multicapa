@@ -20,9 +20,9 @@
 #define TOLERANCIA 0.001f 
 
 #define N_HIDDEN_LAYERS 3  // 3 capas ocultas
-#define HIDDEN_SIZE_1 4096 // neuronas
-#define HIDDEN_SIZE_2 2048  //  neuronas
-#define HIDDEN_SIZE_3 1024  //  neuronas
+#define HIDDEN_SIZE_1 2048 // neuronas
+#define HIDDEN_SIZE_2 1024  //  neuronas
+#define HIDDEN_SIZE_3 512  //  neuronas
 
 const char* CLASS_NAMES[10] = {
     "avion", "auto", "pajaro", "gato", "ciervo",
@@ -353,7 +353,7 @@ int main() {
 
     std::cout << "\n";
     std::cout << "final\n";
-    std::cout << "Mejor accuracy: " << (best_accuracy) << "\n\n";
+    std::cout << "Mejor accuracy: " << (best_accuracy*100.0f) << "%\n\n";
 
     std::vector<float> h_output(N_IMAGES * N_CLASSES);
     CUDA_CHECK(cudaMemcpy(h_output.data(), layers[total_layers - 1].d_output,
@@ -378,7 +378,7 @@ int main() {
 
 
     std::cout << "\n";
-    std::cout << "PRUEBA CON IMAGEN INDIVIDUAL\n";
+    std::cout << "Prueba con imagen individual\n";
     std::cout << "\n";
 
     int test_idx = 5;
