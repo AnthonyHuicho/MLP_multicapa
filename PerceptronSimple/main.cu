@@ -183,7 +183,7 @@ int main() {
     int total_layers = N_HIDDEN_LAYERS + 1;
     std::vector<Layer> layers(total_layers);
 
-    std::cout << "Creando red neuronal:\n";
+
     std::cout << "  Entrada: " << N_PIXELS << " neuronas\n";
 
     initialize_layer(layers[0], N_PIXELS, HIDDEN_SIZE_1, N_IMAGES);
